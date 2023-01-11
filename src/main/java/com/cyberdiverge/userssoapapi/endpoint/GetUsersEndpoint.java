@@ -25,7 +25,7 @@ public class GetUsersEndpoint {
         if(users!=null) {
             response = new GetUsersResponse();
             for (UserEntity u : users) {
-                response.getUsers().add(AppUtils.getUser(u));
+                response.getUser().add(AppUtils.getUser(u));
             }
         }
         return response;

@@ -2,6 +2,7 @@ package com.cyberdiverge.userssoapapi.repository;
 
 
 import com.cyberdiverge.users_soap_api.User;
+
 import com.cyberdiverge.userssoapapi.model.UserEntity;
 import com.cyberdiverge.userssoapapi.util.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -49,5 +52,20 @@ public class UserService {
 
 	public int deleteById(String id) {
 		return jdbcTemplate.update("DELETE FROM soapusers WHERE id=?", id);
+	}
+
+	public List<String> searchCapabilityById(String id) {
+		String sql = "SELECT capability FROM soapcapabilities where id = '" + id + "'";
+
+		List<String> c = new ArrayList<String>();
+
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+
+		for (Map row : rows) {
+
+			c.add((String) row.get("capability"));
+		}
+
+		return c;
 	}
 }

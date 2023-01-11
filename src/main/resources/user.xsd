@@ -35,6 +35,14 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="getCapabilitiesByUserIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="getUserResponse">
         <xs:complexType>
             <xs:sequence>
@@ -46,7 +54,7 @@
     <xs:element name="getUsersResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="users" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="user" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -58,6 +66,14 @@
     </xs:element>
 
     <xs:element name="deleteUserResponse" type="tns:Void">
+    </xs:element>
+
+    <xs:element name="getCapabilitiesByUserIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="capability" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 
     <xs:complexType name="user">

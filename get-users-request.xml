@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://cyberdiverge.com/users-soap-api">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getUsersRequest>
+         <gs:id>1c2a3b4e</gs:id>
+      </gs:getUsersRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
